@@ -4,21 +4,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="config.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-  <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js"></script>
+<!-- <script type="text/javascript" src="//cdn.athom.com/athom-api/2.1.147/athom-api.min.js"></script> -->
   <script>!function(a,b,c,d){"use strict";var e="treeview",f={};f.settings={injectStyle:!0,levels:2,expandIcon:"glyphicon glyphicon-plus",collapseIcon:"glyphicon glyphicon-minus",emptyIcon:"glyphicon",nodeIcon:"",selectedIcon:"",checkedIcon:"glyphicon glyphicon-check",uncheckedIcon:"glyphicon glyphicon-unchecked",color:d,backColor:d,borderColor:d,onhoverColor:"#F5F5F5",selectedColor:"#FFFFFF",selectedBackColor:"#428bca",searchResultColor:"#D9534F",searchResultBackColor:d,enableLinks:!1,highlightSelected:!0,highlightSearchResults:!0,showBorder:!0,showIcon:!0,showCheckbox:!1,showTags:!1,multiSelect:!1,onNodeChecked:d,onNodeCollapsed:d,onNodeDisabled:d,onNodeEnabled:d,onNodeExpanded:d,onNodeSelected:d,onNodeUnchecked:d,onNodeUnselected:d,onSearchComplete:d,onSearchCleared:d},f.options={silent:!1,ignoreChildren:!1},f.searchOptions={ignoreCase:!0,exactMatch:!1,revealResults:!0};var g=function(b,c){return this.$element=a(b),this.elementId=b.id,this.styleId=this.elementId+"-style",this.init(c),{options:this.options,init:a.proxy(this.init,this),remove:a.proxy(this.remove,this),getNode:a.proxy(this.getNode,this),getParent:a.proxy(this.getParent,this),getSiblings:a.proxy(this.getSiblings,this),getSelected:a.proxy(this.getSelected,this),getUnselected:a.proxy(this.getUnselected,this),getExpanded:a.proxy(this.getExpanded,this),getCollapsed:a.proxy(this.getCollapsed,this),getChecked:a.proxy(this.getChecked,this),getUnchecked:a.proxy(this.getUnchecked,this),getDisabled:a.proxy(this.getDisabled,this),getEnabled:a.proxy(this.getEnabled,this),selectNode:a.proxy(this.selectNode,this),unselectNode:a.proxy(this.unselectNode,this),toggleNodeSelected:a.proxy(this.toggleNodeSelected,this),collapseAll:a.proxy(this.collapseAll,this),collapseNode:a.proxy(this.collapseNode,this),expandAll:a.proxy(this.expandAll,this),expandNode:a.proxy(this.expandNode,this),toggleNodeExpanded:a.proxy(this.toggleNodeExpanded,this),revealNode:a.proxy(this.revealNode,this),checkAll:a.proxy(this.checkAll,this),checkNode:a.proxy(this.checkNode,this),uncheckAll:a.proxy(this.uncheckAll,this),uncheckNode:a.proxy(this.uncheckNode,this),toggleNodeChecked:a.proxy(this.toggleNodeChecked,this),disableAll:a.proxy(this.disableAll,this),disableNode:a.proxy(this.disableNode,this),enableAll:a.proxy(this.enableAll,this),enableNode:a.proxy(this.enableNode,this),toggleNodeDisabled:a.proxy(this.toggleNodeDisabled,this),search:a.proxy(this.search,this),clearSearch:a.proxy(this.clearSearch,this)}};g.prototype.init=function(b){this.tree=[],this.nodes=[],b.data&&("string"==typeof b.data&&(b.data=a.parseJSON(b.data)),this.tree=a.extend(!0,[],b.data),delete b.data),this.options=a.extend({},f.settings,b),this.destroy(),this.subscribeEvents(),this.setInitialStates({nodes:this.tree},0),this.render()},g.prototype.remove=function(){this.destroy(),a.removeData(this,e),a("#"+this.styleId).remove()},g.prototype.destroy=function(){this.initialized&&(this.$wrapper.remove(),this.$wrapper=null,this.unsubscribeEvents(),this.initialized=!1)},g.prototype.unsubscribeEvents=function(){this.$element.off("click"),this.$element.off("nodeChecked"),this.$element.off("nodeCollapsed"),this.$element.off("nodeDisabled"),this.$element.off("nodeEnabled"),this.$element.off("nodeExpanded"),this.$element.off("nodeSelected"),this.$element.off("nodeUnchecked"),this.$element.off("nodeUnselected"),this.$element.off("searchComplete"),this.$element.off("searchCleared")},g.prototype.subscribeEvents=function(){this.unsubscribeEvents(),this.$element.on("click",a.proxy(this.clickHandler,this)),"function"==typeof this.options.onNodeChecked&&this.$element.on("nodeChecked",this.options.onNodeChecked),"function"==typeof this.options.onNodeCollapsed&&this.$element.on("nodeCollapsed",this.options.onNodeCollapsed),"function"==typeof this.options.onNodeDisabled&&this.$element.on("nodeDisabled",this.options.onNodeDisabled),"function"==typeof this.options.onNodeEnabled&&this.$element.on("nodeEnabled",this.options.onNodeEnabled),"function"==typeof this.options.onNodeExpanded&&this.$element.on("nodeExpanded",this.options.onNodeExpanded),"function"==typeof this.options.onNodeSelected&&this.$element.on("nodeSelected",this.options.onNodeSelected),"function"==typeof this.options.onNodeUnchecked&&this.$element.on("nodeUnchecked",this.options.onNodeUnchecked),"function"==typeof this.options.onNodeUnselected&&this.$element.on("nodeUnselected",this.options.onNodeUnselected),"function"==typeof this.options.onSearchComplete&&this.$element.on("searchComplete",this.options.onSearchComplete),"function"==typeof this.options.onSearchCleared&&this.$element.on("searchCleared",this.options.onSearchCleared)},g.prototype.setInitialStates=function(b,c){if(b.nodes){c+=1;var d=b,e=this;a.each(b.nodes,function(b,f){f.nodeId=e.nodes.length,f.parentId=d.nodeId,f.hasOwnProperty("selectable")||(f.selectable=!0),f.state=f.state||{},f.state.hasOwnProperty("checked")||(f.state.checked=!1),f.state.hasOwnProperty("disabled")||(f.state.disabled=!1),f.state.hasOwnProperty("expanded")||(!f.state.disabled&&c<e.options.levels&&f.nodes&&f.nodes.length>0?f.state.expanded=!0:f.state.expanded=!1),f.state.hasOwnProperty("selected")||(f.state.selected=!1),e.nodes.push(f),f.nodes&&e.setInitialStates(f,c)})}},g.prototype.clickHandler=function(b){this.options.enableLinks||b.preventDefault();var c=a(b.target),d=this.findNode(c);if(d&&!d.state.disabled){var e=c.attr("class")?c.attr("class").split(" "):[];e.indexOf("expand-icon")!==-1?(this.toggleExpandedState(d,f.options),this.render()):e.indexOf("check-icon")!==-1?(this.toggleCheckedState(d,f.options),this.render()):(d.selectable?this.toggleSelectedState(d,f.options):this.toggleExpandedState(d,f.options),this.render())}},g.prototype.findNode=function(a){var b=a.closest("li.list-group-item").attr("data-nodeid"),c=this.nodes[b];return c||console.log("Error: node does not exist"),c},g.prototype.toggleExpandedState=function(a,b){a&&this.setExpandedState(a,!a.state.expanded,b)},g.prototype.setExpandedState=function(b,c,d){c!==b.state.expanded&&(c&&b.nodes?(b.state.expanded=!0,d.silent||this.$element.trigger("nodeExpanded",a.extend(!0,{},b))):c||(b.state.expanded=!1,d.silent||this.$element.trigger("nodeCollapsed",a.extend(!0,{},b)),b.nodes&&!d.ignoreChildren&&a.each(b.nodes,a.proxy(function(a,b){this.setExpandedState(b,!1,d)},this))))},g.prototype.toggleSelectedState=function(a,b){a&&this.setSelectedState(a,!a.state.selected,b)},g.prototype.setSelectedState=function(b,c,d){c!==b.state.selected&&(c?(this.options.multiSelect||a.each(this.findNodes("true","g","state.selected"),a.proxy(function(a,b){this.setSelectedState(b,!1,d)},this)),b.state.selected=!0,d.silent||this.$element.trigger("nodeSelected",a.extend(!0,{},b))):(b.state.selected=!1,d.silent||this.$element.trigger("nodeUnselected",a.extend(!0,{},b))))},g.prototype.toggleCheckedState=function(a,b){a&&this.setCheckedState(a,!a.state.checked,b)},g.prototype.setCheckedState=function(b,c,d){c!==b.state.checked&&(c?(b.state.checked=!0,d.silent||this.$element.trigger("nodeChecked",a.extend(!0,{},b))):(b.state.checked=!1,d.silent||this.$element.trigger("nodeUnchecked",a.extend(!0,{},b))))},g.prototype.setDisabledState=function(b,c,d){c!==b.state.disabled&&(c?(b.state.disabled=!0,this.setExpandedState(b,!1,d),this.setSelectedState(b,!1,d),this.setCheckedState(b,!1,d),d.silent||this.$element.trigger("nodeDisabled",a.extend(!0,{},b))):(b.state.disabled=!1,d.silent||this.$element.trigger("nodeEnabled",a.extend(!0,{},b))))},g.prototype.render=function(){this.initialized||(this.$element.addClass(e),this.$wrapper=a(this.template.list),this.injectStyle(),this.initialized=!0),this.$element.empty().append(this.$wrapper.empty()),this.buildTree(this.tree,0)},g.prototype.buildTree=function(b,c){if(b){c+=1;var d=this;a.each(b,function(e,f){for(var g=a(d.template.item).addClass("node-"+d.elementId).addClass(f.state.checked?"node-checked":"").addClass(f.state.disabled?"node-disabled":"").addClass(f.state.selected?"node-selected":"").addClass(f.searchResult?"search-result":"").attr("data-nodeid",f.nodeId).attr("style",d.buildStyleOverride(f)),h=0;h<c-1;h++)g.append(d.template.indent);var i=[];if(f.nodes?(i.push("expand-icon"),f.state.expanded?i.push(d.options.collapseIcon):i.push(d.options.expandIcon)):i.push(d.options.emptyIcon),g.append(a(d.template.icon).addClass(i.join(" "))),d.options.showIcon){var i=["node-icon"];i.push(f.icon||d.options.nodeIcon),f.state.selected&&(i.pop(),i.push(f.selectedIcon||d.options.selectedIcon||f.icon||d.options.nodeIcon)),g.append(a(d.template.icon).addClass(i.join(" ")))}if(d.options.showCheckbox){var i=["check-icon"];f.state.checked?i.push(d.options.checkedIcon):i.push(d.options.uncheckedIcon),g.append(a(d.template.icon).addClass(i.join(" ")))}if(d.options.enableLinks?g.append(a(d.template.link).attr("href",f.href).append(f.text)):g.append(f.text),d.options.showTags&&f.tags&&a.each(f.tags,function(c,e){g.append(a(d.template.badge).append(e))}),d.$wrapper.append(g),f.nodes&&f.state.expanded&&!f.state.disabled)return d.buildTree(f.nodes,c)})}},g.prototype.buildStyleOverride=function(a){if(a.state.disabled)return"";var b=a.color,c=a.backColor;return this.options.highlightSelected&&a.state.selected&&(this.options.selectedColor&&(b=this.options.selectedColor),this.options.selectedBackColor&&(c=this.options.selectedBackColor)),this.options.highlightSearchResults&&a.searchResult&&!a.state.disabled&&(this.options.searchResultColor&&(b=this.options.searchResultColor),this.options.searchResultBackColor&&(c=this.options.searchResultBackColor)),"color:"+b+";background-color:"+c+";"},g.prototype.injectStyle=function(){this.options.injectStyle&&!c.getElementById(this.styleId)&&a('<style type="text/css" id="'+this.styleId+'"> '+this.buildStyle()+" </style>").appendTo("head")},g.prototype.buildStyle=function(){var a=".node-"+this.elementId+"{";return this.options.color&&(a+="color:"+this.options.color+";"),this.options.backColor&&(a+="background-color:"+this.options.backColor+";"),this.options.showBorder?this.options.borderColor&&(a+="border:1px solid "+this.options.borderColor+";"):a+="border:none;",a+="}",this.options.onhoverColor&&(a+=".node-"+this.elementId+":not(.node-disabled):hover{background-color:"+this.options.onhoverColor+";}"),this.css+a},g.prototype.template={list:'<ul class="list-group"></ul>',item:'<li class="list-group-item"></li>',indent:'<span class="indent"></span>',icon:'<span class="icon"></span>',link:'<a href="#" style="color:inherit;"></a>',badge:'<span class="badge"></span>'},g.prototype.css=".treeview .list-group-item{cursor:pointer}.treeview span.indent{margin-left:10px;margin-right:10px}.treeview span.icon{width:12px;margin-right:5px}.treeview .node-disabled{color:silver;cursor:not-allowed}",g.prototype.getNode=function(a){return this.nodes[a]},g.prototype.getParent=function(a){var b=this.identifyNode(a);return this.nodes[b.parentId]},g.prototype.getSiblings=function(a){var b=this.identifyNode(a),c=this.getParent(b),d=c?c.nodes:this.tree;return d.filter(function(a){return a.nodeId!==b.nodeId})},g.prototype.getSelected=function(){return this.findNodes("true","g","state.selected")},g.prototype.getUnselected=function(){return this.findNodes("false","g","state.selected")},g.prototype.getExpanded=function(){return this.findNodes("true","g","state.expanded")},g.prototype.getCollapsed=function(){return this.findNodes("false","g","state.expanded")},g.prototype.getChecked=function(){return this.findNodes("true","g","state.checked")},g.prototype.getUnchecked=function(){return this.findNodes("false","g","state.checked")},g.prototype.getDisabled=function(){return this.findNodes("true","g","state.disabled")},g.prototype.getEnabled=function(){return this.findNodes("false","g","state.disabled")},g.prototype.selectNode=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.setSelectedState(a,!0,b)},this)),this.render()},g.prototype.unselectNode=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.setSelectedState(a,!1,b)},this)),this.render()},g.prototype.toggleNodeSelected=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.toggleSelectedState(a,b)},this)),this.render()},g.prototype.collapseAll=function(b){var c=this.findNodes("true","g","state.expanded");this.forEachIdentifier(c,b,a.proxy(function(a,b){this.setExpandedState(a,!1,b)},this)),this.render()},g.prototype.collapseNode=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.setExpandedState(a,!1,b)},this)),this.render()},g.prototype.expandAll=function(b){if(b=a.extend({},f.options,b),b&&b.levels)this.expandLevels(this.tree,b.levels,b);else{var c=this.findNodes("false","g","state.expanded");this.forEachIdentifier(c,b,a.proxy(function(a,b){this.setExpandedState(a,!0,b)},this))}this.render()},g.prototype.expandNode=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.setExpandedState(a,!0,b),a.nodes&&b&&b.levels&&this.expandLevels(a.nodes,b.levels-1,b)},this)),this.render()},g.prototype.expandLevels=function(b,c,d){d=a.extend({},f.options,d),a.each(b,a.proxy(function(a,b){this.setExpandedState(b,c>0,d),b.nodes&&this.expandLevels(b.nodes,c-1,d)},this))},g.prototype.revealNode=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){for(var c=this.getParent(a);c;)this.setExpandedState(c,!0,b),c=this.getParent(c)},this)),this.render()},g.prototype.toggleNodeExpanded=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.toggleExpandedState(a,b)},this)),this.render()},g.prototype.checkAll=function(b){var c=this.findNodes("false","g","state.checked");this.forEachIdentifier(c,b,a.proxy(function(a,b){this.setCheckedState(a,!0,b)},this)),this.render()},g.prototype.checkNode=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.setCheckedState(a,!0,b)},this)),this.render()},g.prototype.uncheckAll=function(b){var c=this.findNodes("true","g","state.checked");this.forEachIdentifier(c,b,a.proxy(function(a,b){this.setCheckedState(a,!1,b)},this)),this.render()},g.prototype.uncheckNode=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.setCheckedState(a,!1,b)},this)),this.render()},g.prototype.toggleNodeChecked=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.toggleCheckedState(a,b)},this)),this.render()},g.prototype.disableAll=function(b){var c=this.findNodes("false","g","state.disabled");this.forEachIdentifier(c,b,a.proxy(function(a,b){this.setDisabledState(a,!0,b)},this)),this.render()},g.prototype.disableNode=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.setDisabledState(a,!0,b)},this)),this.render()},g.prototype.enableAll=function(b){var c=this.findNodes("true","g","state.disabled");this.forEachIdentifier(c,b,a.proxy(function(a,b){this.setDisabledState(a,!1,b)},this)),this.render()},g.prototype.enableNode=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.setDisabledState(a,!1,b)},this)),this.render()},g.prototype.toggleNodeDisabled=function(b,c){this.forEachIdentifier(b,c,a.proxy(function(a,b){this.setDisabledState(a,!a.state.disabled,b)},this)),this.render()},g.prototype.forEachIdentifier=function(b,c,d){c=a.extend({},f.options,c),b instanceof Array||(b=[b]),a.each(b,a.proxy(function(a,b){d(this.identifyNode(b),c)},this))},g.prototype.identifyNode=function(a){return"number"==typeof a?this.nodes[a]:a},g.prototype.search=function(b,c){c=a.extend({},f.searchOptions,c),this.clearSearch({render:!1});var d=[];if(b&&b.length>0){c.exactMatch&&(b="^"+b+"$");var e="g";c.ignoreCase&&(e+="i"),d=this.findNodes(b,e),a.each(d,function(a,b){b.searchResult=!0})}return c.revealResults?this.revealNode(d):this.render(),this.$element.trigger("searchComplete",a.extend(!0,{},d)),d},g.prototype.clearSearch=function(b){b=a.extend({},{render:!0},b);var c=a.each(this.findNodes("true","g","searchResult"),function(a,b){b.searchResult=!1});b.render&&this.render(),this.$element.trigger("searchCleared",a.extend(!0,{},c))},g.prototype.findNodes=function(b,c,d){c=c||"g",d=d||"text";var e=this;return a.grep(this.nodes,function(a){var f=e.getNodeValue(a,d);if("string"==typeof f)return f.match(new RegExp(b,c))})},g.prototype.getNodeValue=function(a,b){var c=b.indexOf(".");if(c>0){var e=a[b.substring(0,c)],f=b.substring(c+1,b.length);return this.getNodeValue(e,f)}return a.hasOwnProperty(b)?a[b].toString():d};var h=function(a){b.console&&b.console.error(a)};a.fn[e]=function(b,c){var d;return this.each(function(){var f=a.data(this,e);"string"==typeof b?f?a.isFunction(f[b])&&"_"!==b.charAt(0)?(c instanceof Array||(c=[c]),d=f[b].apply(f,c)):h("No such method : "+b):h("Not initialized, can not call method : "+b):"boolean"==typeof b?d=f:a.data(this,e,new g(this,a.extend(!0,{},b)))}),d||this}}(jQuery,window,document);</script>
   <style>.sidebar-nav li a,.sidebar-nav li a:active,.sidebar-nav li a:focus{text-decoration:none}body{overflow-x:hidden}#wrapper{padding-left:0;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}#wrapper.toggled{padding-left:250px}#sidebar-wrapper{z-index:99;position:fixed;left:250px;width:0;height:100%;margin-left:-250px;overflow-y:auto;background:#555;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}#wrapper.toggled #sidebar-wrapper{width:250px}#page-content-wrapper{width:100%;position:absolute;padding:15px}#wrapper.toggled #page-content-wrapper{position:absolute;margin-right:-250px}.sidebar-nav{position:absolute;top:0;width:250px;margin:0;padding:0;list-style:none}.sidebar-nav li{text-indent:20px;line-height:40px}.sidebar-nav li a{display:block;color:#999}.sidebar-nav li a:hover{text-decoration:none;color:#fff;background:rgba(255,255,255,.2)}.sidebar-nav>.sidebar-brand{height:65px;font-size:18px;line-height:60px}.sidebar-nav>.sidebar-brand a{color:#999}.sidebar-nav>.sidebar-brand a:hover{color:#fff;background:0 0}@media(min-width:768px){#wrapper{padding-left:250px}#wrapper.toggled{padding-left:0}#sidebar-wrapper{width:250px}#wrapper.toggled #sidebar-wrapper{width:0}#page-content-wrapper{padding:20px;position:relative}#wrapper.toggled #page-content-wrapper{position:relative;margin-right:0}}</style>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <style>
+    body {
+      background-image: linear-gradient(#187596, #029680);
+      font-family: Roboto,Helvetica,sans-serif;
+    }
+
+    h1 {
+      color: white;
+    }
+
+    .panel-heading {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .panel {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 12px;
+    }
+
     .well {
       margin-bottom: 5px;
+      background-color: white;
+      border: none;
+      border-radius: 6px;
     }
     .col-sm-5, .col-sm-2 {
-      padding-right: 5px;
-      padding-left: 5px;
+      padding-right: 10px;
+      padding-left: 10px;
     }
 
     .node-folders {
@@ -51,35 +75,70 @@
       width: 13px;
       vertical-align: text-top;
     }
+
+    .label-string {
+      background-color: rgb(117,213,0);
+      border-radius: 12px;
+    }
+
+    .label-number {
+      background-color: rgb(2,170,214);
+      border-radius: 12px;
+    }
+
+    .label-boolean {
+      background-color: rgb(213,103,0);
+      border-radius: 12px;
+    }
   </style>
 </head>
 <body>
   <div id="wrapper" class="toggled">
     <div id="sidebar-wrapper">
-      <h3 style="color: white">&nbsp;&nbsp;Folders</h3>
+        <br />
+        <h3 style="color: white">&nbsp;Folders&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-default" data="add_btn" data-toggle="tooltip" title="" onclick="addFolder()" data-original-title="Add folder"><i class="fa fa-plus"></i></button>
+          <button class="btn btn-default" data="edit_btn" data-toggle="tooltip" title="" onclick="editFolder()" data-original-title="Edit folder"><i class="fa fa-pencil"></i></button>
+          <!--button class="btn btn-default" data="delete_btn" data-toggle="tooltip" title="" onclick="deleteFlowFolder()" data-original-title="Delete folder"><i class="fa fa-remove"></i></button-->
+      </h3>
       <div id="folders">
         Showing <span class="label label-info">0</span> flows in <span class="label label-info">0</span> folders</h1>
       </div>
     </div>
     <div id="page-content-wrapper">
       <div class=container-fluid>
-        <h1>Homey flow viewer</h1>
+        <h1>Homey 2 flow viewer</h1>
         <div class="row">
-          <div class="form-group col-sm-3">
+          <div class="form-group col-sm-2">
             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle folders</a>
           </div>
-          <div class="col-sm-9">
+          <div class="form-group col-sm-2">
+            <a href="#token-toggle" class="btn btn-default" id="token-toggle">Toggle tokens</a>
+          </div>
+          <div class="col-sm-8">
             <div class="form-group has-feedback">
-              <input id="search" type="text" class="form-control" placeholder="Search" onKeyDown="search()" onKeyUp="search()" onChange="search()"/>
+              <input id="search" type="text" class="form-control" placeholder="Search" onKeyUp="search()" onChange="search()"/>
               <i class="glyphicon glyphicon-search form-control-feedback"></i>
             </div>
           </div>
         </div>
 
+        <div id="tokens" class="hide"></div>
+
         <div id="flows"></div>
+
         <div class="hide">
+          <div class="template_token">
+              <div class="row">
+                <div class="col-sm-3"><span data="token_uri"></div>
+                <div class="col-sm-3"><span data="token_title"></div>
+                <div class="col-sm-3"><span data="token_type"></div>
+                <div class="col-sm-3"><span data="token_value"></div>
+              </div>
+          </div>
+
           <div class="template_flow">
-            <div class="panel panel-success" data="flow" data-flow-id="">
+            <div class="panel panel-success" data="flow" data-flow-id="" data-folder-id="">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-sm-4 draghandle" data="flow_path"></div>
@@ -93,24 +152,41 @@
                     <span class="label label-danger" data="label_broken"></span>
                     <button class="btn btn-default" data="toggle_btn" data-toggle="tooltip" title="Enable or disable"><i class="fa fa-square-o"></i></button>
                     <button class="btn btn-default" data="edit_btn"   data-toggle="tooltip" title="Rename & Move"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-default" data="copy_btn"   data-toggle="tooltip" title="Copy"><i class="fa fa-clone"></i></button>
+                    <!-- <button class="btn btn-default" data="copy_btn"   data-toggle="tooltip" title="Copy"><i class="fa fa-clone"></i></button> -->
                     <button class="btn btn-default" data="delete_btn" data-toggle="tooltip" title="Delete"><i class="fa fa-remove"></i></button>
                   </div>
                 </div>
               </div>
               <div class="panel-body">
                 <div class="row">
+                  <div class="col-sm-12 small text-center">
+                    <div>Triggered <span data="triggercount"></span> times.</div>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-sm-2 small">
-                    <div class="text-muted">Trigger</div>
-                    <span data="cards_trigger"/>
+                    <span data="cards_trigger">
+                      <div>When</div>
+                    </span>
                   </div>
-                  <div class="col-sm-5 small">
-                    <div class="text-muted">Conditions</div>
-                    <span data="cards_condition"/>
+                  <div class="col-sm-5 small" data="cards_condition">
+                    <span data="cards_condition_group1">
+                      <div>And</div>
+                    </span>
+                    <span data="cards_condition_group2">
+                      <div>Or</div>
+                    </span>
+                    <span data="cards_condition_group3">
+                      <div>Or</div>
+                    </span>
                   </div>
-                  <div class="col-sm-5 small">
-                    <div class="text-muted">Actions</div>
-                    <span data="cards_action"/>
+                  <div class="col-sm-5 small" data="cards_action">
+                    <span data="cards_action_then">
+                      <div>Then</div>
+                    </span>
+                    <span data="cards_action_else">
+                      <div>Else</div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -124,7 +200,7 @@
                 <span class="label label-success pull-right" data="card_type_device"></span>
                 <span class="label label-info pull-right" data="card_type_app"></span>
                 <span class="label label-primary pull-right" data="card_type_manager"></span>
-                <span class="text-muted draghandle-v" data="move_card_btn"><i class="fa fa-arrows"></i></span>&nbsp;
+                <!-- <span class="text-muted draghandle-v" data="move_card_btn"><i class="fa fa-arrows"></i></span>&nbsp; -->
                 <!-- <span class="text-muted" data="edit_card_btn" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></span>&nbsp; -->
                 <span class="text-muted" data="test_card_btn" data-toggle="tooltip" title="Test"><i class="fa fa-play"></i></span>
                 &nbsp;&nbsp;
@@ -154,6 +230,30 @@
             </select>
           </div>
 
+          <div class="dialog_addFolder">
+            <label for="addName" >Name</label>
+            <input id="addFolder" class="form-control" type="text" value="">
+            <label for="editFolder">In folder</label>
+            <select id="editFolder" class="form-control">
+              <option value="false">None</option>
+            </select>
+          </div>
+
+          <div class="dialog_selectFolder">
+            <label for="editFolder">Folder</label>
+            <select id="editFolder" class="form-control">
+              </select>
+            </div>
+
+            <div class="dialog_editFolder">
+              <label for="editName" >Name</label>
+              <input id="editName" class="form-control" type="text" value="">
+              <label for="editFolder">In folder</label>
+              <select id="editFolder" class="form-control">
+                <option value="false">None</option>
+            </select>
+          </div>
+
           <div class="dialog_test form-group">
             <span class="text-muted" data="Progress:"></span>
             <span class="text-muted" data="test_status">initializing...</span>
@@ -178,7 +278,7 @@
     </div>
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">flows: <span id=flow_count>loading...</span></p>
+        <p>flows: <span id=flow_count>loading...</span></p>
       </div>
     </footer>
   </div>
@@ -187,9 +287,11 @@
   var cards
   var folders = []
   var flows = []
+  var tokens = []
 
-  if (setup.ip === '0.0.0.0') alert('Configure your Homey IP in this script...')
-  if (setup.bearer_token === 'your token') alert('Configure your Bearer token in this script...')
+  if (setup.ip === '0.0.0.0') alert('Configure your Homey IP in the config.js file...')
+  if (setup.bearer_token === 'your token') alert('Configure your Bearer token in the config.js file...')
+  if (setup.homeyId === 'your Homey ID') alert('Configure your Homey ID in the config.js file...')
 
   $.ajaxSetup({
     contentType : 'application/json',
@@ -206,13 +308,27 @@
       return this.charAt(0).toUpperCase() + this.slice(1)
   }
 
+  function addToken (token) {
+    var newToken = $('.template_token').clone()
+    $(newToken).find('[data=token_uri]').html(token.uriObj.name)
+    $(newToken).find('[data=token_title]').html(formatToken(token))
+    $(newToken).find('[data=token_type]').html(token.type)
+    $(newToken).find('[data=token_value]').html(token.value)
+    $('#tokens').append(newToken.html())
+  }
+
   function addFlow (flow) {
     var newFlow = $('.template_flow').clone()
     $(newFlow).find('[data=flow]').attr('data-flow-id', flow.id)
-    $(newFlow).find('[data=title]').html(`<a href="${setup.protocol}://${setup.ip}/manager/flow/#${flow.id}" target=_new>${flow.title}</a>`)
+    $(newFlow).find('[data=flow]').attr('data-folder-id', flow.folder)
+    $(newFlow).find('[data=title]').html(flow.name)
+    $(newFlow).find('[data=triggercount]').html(flow.triggerCount)
     $(newFlow).find('[data=cards_trigger]').append(formatCard(flow.id, flow.trigger, 'trigger', 0).html())
-    $(newFlow).find('[data=cards_condition]').append(formatCards(flow, 'conditions').html())
-    $(newFlow).find('[data=cards_action]').append(formatCards(flow, 'actions').html())
+    $(newFlow).find('[data=cards_condition_group1]').append(formatCards(flow, 'conditions', 'group1').html())
+    $(newFlow).find('[data=cards_condition_group2]').append(formatCards(flow, 'conditions', 'group2').html())
+    $(newFlow).find('[data=cards_condition_group3]').append(formatCards(flow, 'conditions', 'group3').html())
+    $(newFlow).find('[data=cards_action_then]').append(formatCards(flow, 'actions', 'then').html())
+    $(newFlow).find('[data=cards_action_else]').append(formatCards(flow, 'actions', 'else').html())
     $(newFlow).find('[data=toggle_btn]').attr('onClick', `toggleFlow('${flow.id}')`)
     $(newFlow).find('[data=edit_btn]').attr('onClick', `editFlow('${flow.id}')`)
     $(newFlow).find('[data=copy_btn]').attr('onClick', `copyFlow('${flow.id}')`)
@@ -223,46 +339,72 @@
       $(newFlow).find('[data=flow]').removeClass("panel-success").addClass("panel-danger")
       $(newFlow).find('[data=label_broken]').html("BROKEN")
     }
-    $('#flows').append(newFlow.html())
+    if ($(newFlow).find('[data=cards_condition_group1] .card').size() === 0 ) $(newFlow).find('[data=cards_condition_group1]').remove()
+    if ($(newFlow).find('[data=cards_condition_group2] .card').size() === 0 ) $(newFlow).find('[data=cards_condition_group2]').remove()
+    if ($(newFlow).find('[data=cards_condition_group3] .card').size() === 0 ) $(newFlow).find('[data=cards_condition_group3]').remove()
+    if ($(newFlow).find('[data=cards_action_then] .card').size() === 0 ) $(newFlow).find('[data=cards_action_then]').remove()
+    if ($(newFlow).find('[data=cards_action_else] .card').size() === 0 ) $(newFlow).find('[data=cards_action_else]').remove()
+
+    // new or existing
+    if ($(`[data-flow-id=${flow.id}]`).length > 0) {
+      $(`[data-flow-id=${flow.id}]`).replaceWith(newFlow.html())
+    } else {
+      $('#flows').append(newFlow.html())
+    }
     showFlowToggleButton(flow.id)
   }
 
-  function noCard () {
+  function noCard (id) {
     var noCard = $('<div />')
-    noCard.html('<br><span class="label label-danger">NO CARD</span>')
+    if (id) {
+      noCard.html(`<br><span class="label label-danger">NO CARD (${id})</span>`)
+    } else {
+      noCard.html('<br><span class="label label-danger">NO CARD</span>')
+    }
     return noCard
   }
 
-  function formatCards (flow, type) {
-    if (type === 'actions' && flow[type].length === 0) return noCard()
+  function formatCards (flow, type, group) {
+    // if (type === 'actions' && flow[type].length === 0) return noCard()
     var newCards = $("<div />")
     flow[type].forEach(function (card, index) {
-      newCards.append(formatCard(flow.id, card, type, index).html())
+      if (!group || card.group === group) {
+        newCards.append(formatCard(flow.id, card, type, index).html())
+      }
     })
     return newCards
   }
 
   function formatCard (flowId, card, type, index) {
     if (isEmptyObject(card)) return noCard()
+    if (card.broken) return noCard(card.id)
     var newCard = $('.template_card').clone()
     var definitions = getCard(card.uri, (type === 'trigger') ? type : type.slice(0, -1), card.id)
+    if (definitions === undefined) {
+      console.log(`no definitions found for ${type}-card with uri ${card.uri} in flow '${getFlow(flowId).name}', marked as 'NO CARD'`)
+      return noCard()
+    }
     var app = getApp(card.uri)
-
+    if (app === undefined) {
+      console.log(`no app found for ${type}-card with uri ${card.uri} in flow '${getFlow(flowId).name}', marked as 'NO CARD'`)
+      return noCard()
+    }
     $(newCard).find('[data=card]').attr('card_index', index)
     if (type === 'conditions') {
-      $(newCard).find('[data=card_title]').html(conditionTitleParse(definitions.title.en, !card.inverted))
+      $(newCard).find('[data=card_title]').html(conditionTitleParse(definitions.title, !card.inverted))
     } else {
-      $(newCard).find('[data=card_title]').html(definitions.title.en)
+      $(newCard).find('[data=card_title]').html(definitions.title)
     }
-
     $(newCard).find('[data=card_type_' + app.uriObj.type + ']').html(app.uriObj.name)
-    if (!isEmptyObject(card.args)) $(newCard).find('[data=card_args]').html(formatArgs(card, definitions))
-    if (card.delay && card.delay.number !== '0') $(newCard).find('[data=card_delay]').html('<i>delay</i>: ' + card.delay.number + (card.delay.multiplier === '60' ? ' minute' : ' second') + (card.delay.number !== '1' ? 's' : ''))
-    if (card.droptoken) $(newCard).find('[data=card_droptoken]').html('<i>token</i>: <code>' + (card.droptoken) + '</code>')
+    if (app.uriObj.color) $(newCard).find('[data=card_type_' + app.uriObj.type + ']').css('background-color',app.uriObj.color)
+    if (card.args) $(newCard).find('[data=card_args]').html(formatArgs(card, definitions, flowId))
+    // if (!isEmptyObject(card.args)) $(newCard).find('[data=card_args]').html(formatArgs(card, definitions))
+    if (card.delay && card.delay.number !== '0') $(newCard).find('[data=card_delay]').html('<i>delay</i>: ' + card.delay.number + (card.delay.multiplier === 60 ? ' minute' : ' second') + (card.delay.number !== '1' ? 's' : ''))
+    if (card.droptoken) $(newCard).find('[data=card_droptoken]').html('<i>token</i>: ' + formatToken({title: card.droptoken}, flowId))
     if (definitions.tokens) {
-      var tokens = '<i>tokens</i>: '
+      var tokens = '<i>tokens</i>:<br /> '
       definitions.tokens.forEach(token => {
-        tokens += '<code>' + (token.name) + '</code> '
+        tokens += formatToken(token, flowId)
       })
       $(newCard).find('[data=card_droptoken]').html(tokens)
     }
@@ -272,39 +414,58 @@
   }
 
   function formatFolder (id) {
-    var result = getFolder(id).title
-    if (getFolder(id).folder) result = formatFolder(getFolder(id).folder) + " > " + result
+    var result = getFolder(id).name
+    if (getFolder(id).parent) result = formatFolder(getFolder(id).parent) + " > " + result
     return result
   }
 
-  function formatArgs (card, definitions) {
+  function formatArgs (card, definitions, flowId) {
     var output = ''
     Object.keys(card.args).forEach(function (argument) {
       if (Object.prototype.toString.call(definitions.args) === '[object Object]') definitions.args = [definitions.args]
-      output += '<i>' + argument + '</i>: ' + formatArgValue(definitions.args.filter(item => item.name === argument)[0], card.args[argument]) + '<br>'
+      output += '<i>' + argument + '</i>: ' + formatArgValue(definitions.args ? definitions.args.find(item => item.name === argument) : undefined, card.args[argument]) + '<br>'
     })
-    output = output.replace(/\[\[/g, '<code>').replace(/]\]/g, '</code>')
+    output = output.replace(/(?:\[\[)(.*?)(?:\]\])/g, function (tag) {
+      tag = tag.replace(/\[|\]/g, '')
+      var token = {title: tag}
+      return formatToken(token, flowId)
+    })
     return output
   }
 
+  function formatToken (token, flowId) {
+    // find local token in flow
+    if (token.title.indexOf('|') > 0) {
+      let uri = token.title.split('|')[0]
+      let id = token.title.split('|')[1]
+      token = tokens.find(x => (x.uri === uri && (x.id === id || x.title === id))) || token
+    } else if (!token.type) {
+      token.type = 'string'
+      let localTriggerCard = getCard(getFlow(flowId).trigger.uri, 'trigger', getFlow(flowId).trigger.id)
+      if (localTriggerCard && localTriggerCard.tokens) token = localTriggerCard.tokens.find(x => x.id === token.title) || token
+    }
+    var tooltipexample = token.example ? `, example: ${token.example}` : ''
+    return `<span class="label label-info label-${token.type}" data-toggle="tooltip" title="${token.type}${tooltipexample}">${token.title}</span> `
+  }
+
   function formatArgValue (argDef, value) {
+    if (argDef === undefined && typeof value === 'object') argDef = {type: 'object'}  //todo: v2 workaround
     switch (argDef.type) {
       case 'autocomplete':
         return value.name
       case 'dropdown':
-        console.log(argDef, value)
-        console.log(argDef.values.filter(item => item.id.toString() === value.toString()))
-        return argDef.values.filter(item => item.id.toString() === value.toString())[0].label.en
+        return argDef.values.find(item => item.id.toString() === value.toString()).title
       case 'color':
         return `<span class="colorbox" style="background-color: ${value}"> </span> (${value})`
       case 'range':
-        return value * (argDef.labelMultiplier || 1) + (argDef.label || '')
+        return value * (argDef.labelMultiplier || 1) + (argDef.title || '')
+      case 'object':
+        return value.name || JSON.stringify(value)
       case 'text':
       case 'number':
       case 'time':
         return value
       default:
-        console.log(argDef, value)
         return value
     }
   }
@@ -324,36 +485,50 @@
     return e
   }
 
+
   function getApp (uri) {
-    return cards.filter(app => app.uri === uri)[0]
+    return cards.trigger.find(app => app.uri === uri) || cards.condition.find(app => app.uri === uri) || cards.action.find(app => app.uri === uri)
   }
 
   function getCard (uri, type, id) {
-    return getApp(uri).cards[type].filter(card => card.id === id)[0]
+    return cards[type].find(card => card.id === id)
   }
 
   function getDevice (id) {
-    return devices.filter(device => device.id === id)[0]
+    return devices.find(device => device.id === id)
   }
 
   function getFlow (id) {
-    return flows.filter(flow => flow.id === id)[0]
+    return flows.find(flow => flow.id === id)
   }
 
   function getFolder (id) {
-    return folders.filter(folder => folder.id === id)[0]
+    return folders.find(folder => folder.id === id)
   }
 
   function loadCards (callback) {
-    $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/card/`, function(data) {
-      cards = data.result
-      callback()
+    cards = {trigger: [], condition: [], action: []}
+    $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/flowcardtrigger/`, function(data) {
+      $.each(data, function (index, resultCardTrigger) {
+        cards.trigger.push(resultCardTrigger)
+      })
+      $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/flowcardcondition/`, function(data) {
+        $.each(data, function (index, resultCardCondition) {
+          cards.condition.push(resultCardCondition)
+        })
+        $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/flowcardaction/`, function(data) {
+          $.each(data, function (index, resultCardAction) {
+            cards.action.push(resultCardAction)
+          })
+          callback()
+        })
+      })
     })
   }
 
   function loadDevices (callback) {
     $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/devices/device/`, function(data) {
-      $.each(data.result, function (index, resultDevice) {
+      $.each(data, function (index, resultDevice) {
         devices.push({id: resultDevice.id, name: resultDevice.name})
       })
       callback()
@@ -364,7 +539,7 @@
     // get all flow folders
     flows = []
     $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/flow/`, function(data) {
-      $.each(data.result, function (index, flow) {
+      $.each(data, function (index, flow) {
         flows.push(flow)
       })
       callback()
@@ -373,8 +548,8 @@
 
   function loadFolders (callback) {
     folders = []
-    $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/folder/`, function(data) {
-      $.each(data.result, function (index, folder) {
+    $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/flowfolder/`, function(data) {
+      $.each(data, function (index, folder) {
         folders.push(folder)
       })
       sortFolders()
@@ -382,8 +557,18 @@
     })
   }
 
+  function loadTokens (callback) {
+    tokens = []
+    $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flowtoken/flowtoken/`, function(data) {
+      $.each(data, function (index, token) {
+        tokens.push(token)
+      })
+      callback()
+    })
+  }
+
   function folderOrder (id) {
-    var order = formatOrderNumber(getFolder(id).order) + '|'
+    let order = (getFolder(id)) ? formatOrderNumber(getFolder(id).order) + '|' : '_'
     if (getFolder(id).folder) order = folderOrder(getFolder(id).folder) + order
     return order
   }
@@ -399,25 +584,69 @@
     folders.sort((a, b) => (a.sorting > b.sorting ? 1 : -1))
   }
 
-  function showFlows (callback) {
-    flows.forEach(flow => {
-      flow.order = formatOrderNumber(flow.order)
-      if (flow.folder) flow.order = folderOrder(flow.folder) + flow.order
+  function showFlows () {
+    console.log('Show flows')
+    function loopFolders(folders) {
+      folders.forEach(folder => addFolderFlows(folder))
+    }
+
+    function addFolderFlows(folder) {
+      flows.filter(x => x.folder === folder.id).sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1).map(flow => addFlow(flow))
+      if (folder.nodes) loopFolders(folder.nodes)
+    }
+
+    addFolderFlows({id: null}) // toplevel
+    loopFolders(getTree())     // folder structur
+    setFlowsDraggable()
+    search()
+  }
+
+  function showTokens () {
+    console.log('Show tokens')
+    tokens.forEach(token => {
+      addToken(token)
     })
-    flows.sort((a, b) => (a.order > b.order ? 1 : -1))
-    flows.forEach(flow => {
-      addFlow(flow)
+  }
+
+  function showFolders () {
+    console.log('Show folders')
+    // if ($('#folders').treeview) $('#folders').treeview('remove')
+    $('#folders').treeview({
+      data: getTree(),
+      expandIcon: 'glyphicon glyphicon-chevron-right',
+      collapseIcon: 'glyphicon glyphicon-chevron-down',
+      showTags: true,
+      onNodeSelected: function(event, node) {
+        $('[id=search]').val(node.id)
+        search()
+        setTimeout(setFoldersDroppable, 500)
+      },
+      onNodeUnselected: function (event, node) {
+        $('[id=search]').val('')
+        search()
+        setTimeout(setFoldersDroppable, 500)
+      }
     })
-    callback()
+    setFoldersDroppable()
   }
 
   $.getScript(`${setup.protocol}://${setup.ip}/socket.io/socket.io.js`, () => {
+    console.log('Load devices')
     loadDevices(() => {
+      console.log('Load folders')
       loadFolders(() => {
+        console.log('Load cards')
         loadCards(() => {
+          console.log('Load flows')
           loadFlows(() => {
-            showFlows(() => {
-              setTimeout(ready, 1000)
+            console.log('Load tokens')
+            loadTokens(() => {
+              showFlows(true)
+              showTokens()
+              showFolders()
+              connectFlowManager(() => {
+                setTimeout(ready, 500)
+              })
             })
           })
         })
@@ -426,28 +655,9 @@
   })
   function ready() {
     $('#flow_count').html(flows.length)
-    $('#folders').treeview({
-      data: getTree(),
-      expandIcon: 'glyphicon glyphicon-chevron-right',
-      collapseIcon: 'glyphicon glyphicon-chevron-down',
-      showTags: true,
-      onNodeSelected: function(event, node) {
-        $('[data=flow]').hide()
-        flows.filter(flow => flow.folder === node.id).forEach(flow => {
-          $(`[data-flow-id=${flow.id}]`).show()
-        })
-        setTimeout(setFoldersDroppable, 500)
-      },
-      onNodeUnselected: function (event, node) {
-        $('#flows [data=flow]').show()
-        setTimeout(setFoldersDroppable, 500)
-      }
-    })
     $("#wrapper").toggleClass("toggled")
     setTooltips()
-    setFlowsDraggable()
-    setFoldersDroppable()
-    setFlowCardsSortable()
+    // setFlowCardsSortable()
   }
 
   function copyFlow (flowId) {
@@ -486,6 +696,32 @@
         type: 'DELETE',
         success: function(data) {
           $(`[data-flow-id=${flowId}]`).slideUp(1000)
+          loadFlows(function () {
+            showFlows()
+            showFolders()
+          })
+        }
+      })
+    })
+  }
+
+  function deleteFlowFolder (folderId) {
+    deleteFlowFolderDialog(folderId, function(doDelete) {
+      // todo: loop childfolders and move them up
+      // todo: Loop folders and move them up
+
+
+      if (!doDelete) return
+      $.ajax({
+        url: `${setup.protocol}://${setup.ip}/api/manager/flow/flowfolder/${folderId}`,
+        type: 'DELETE',
+        success: function(data) {
+          loadFlows(function () {
+            loadFolders(function () {
+              showFlows()
+              showFolders()
+            })
+          })
         }
       })
     })
@@ -508,46 +744,41 @@
   }
 
   function updateFlowFolder (flowId, folderId) {
-    $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`, function(data) {
-      if (data.status !== 200) return alert('Save failure... getting existing flow')
-      var existingFlow = data.result
-
-      existingFlow.folder = folderId
-      $.ajax({
-        url: `${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`,
-        type: 'PUT',
-        data: JSON.stringify(existingFlow),
-        success: function(data) {
-          location.reload()
-        }
-      })
-    })
-  }
-
-  function editFlow (flowId) {
-    editFlowDialog(flowId, function(newName, newFolder) {
-      if (newName) {
-        if (newFolder === 'false') newFolder = false
-        $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`, function(data) {
-          if (data.status !== 200) return alert('Edit failure... getting existing flow')
-          var existingFlow = data.result
-          existingFlow.title = newName
-          existingFlow.folder = newFolder
-          $.ajax({
-            url: `${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`,
-            type: 'PUT',
-            data: JSON.stringify(existingFlow),
-            success: function(data) {
-              location.reload()
-            }
-          })
+    var saveFlow = {name: getFlow(flowId).name, folder: folderId}
+    $.ajax({
+      url: `${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`,
+      type: 'PUT',
+      data: JSON.stringify(saveFlow),
+      success: function(data) {
+        loadFlows(function () {
+          showFlows()
+          showFolders()
         })
       }
     })
   }
 
+  function editFlow (flowId) {
+    editFlowDialog(flowId, function(newName, newFolder) {
+      if (newFolder === 'false') newFolder = null
+      var saveFlow = {name: newName.trim(), folder: newFolder}
+      if (saveFlow.name.length === 0) return
+      $.ajax({
+        url: `${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`,
+        type: 'PUT',
+        data: JSON.stringify(saveFlow),
+        success: function(data) {
+          loadFlows(function () {
+            showFlows()
+            showFolders()
+          })
+        }
+      })
+    })
+  }
+
   function toggleFlow (flowId) {
-    flows.filter(flow => flow.id === flowId)[0].enabled = !getFlow(flowId).enabled
+    flows.find(flow => flow.id === flowId).enabled = !getFlow(flowId).enabled
     $.ajax({
       url: `${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`,
       type: 'PUT',
@@ -591,7 +822,29 @@
   function deleteFlowDialog (flowId, callback) {
     BootstrapDialog.show({
       title: 'Delete flow',
-      message: 'Are you sure you want to delete flow ' + getFlow(flowId).title + '?',
+      message: 'Are you sure you want to delete flow ' + getFlow(flowId).name + '?',
+      buttons: [
+        {
+          label: 'Cancel',
+          action: function (dialogRef) {
+            dialogRef.close()
+            callback(false)
+          }
+        },{
+          label: 'Delete',
+          action: function (dialogRef) {
+            dialogRef.close()
+            callback(true)
+          }
+        }
+      ]
+    })
+  }
+
+  function deleteFlowFolderDialog (folderId, callback) {
+    BootstrapDialog.show({
+      title: 'Delete folder',
+      message: 'Are you sure you want to delete folder ' + getFolder(folderId).name + '?',
       buttons: [
         {
           label: 'Cancel',
@@ -612,11 +865,9 @@
 
   function editFlowDialog (flowId, callback) {
     var message = $('.dialog_edit').clone()
-    $(message).find('[id=editName]').attr('value', `${getFlow(flowId).title}`)
-    folders.forEach(folder => {
-      $(message).find('[id=editFolder]').append($("<option></option>").attr("value", folder.id).text(formatFolder(folder.id)))
-    })
-    $(message).find('[id=editFolder]').val(getFlow(flowId).folder.toString())
+    buildFolderListSelector(message, 'editFolder')
+    $(message).find('[id=editName]').attr('value', `${getFlow(flowId).name}`)
+    $(message).find('[id=editFolder]').val((getFlow(flowId).folder || false).toString())
     BootstrapDialog.show({
       title: 'Edit and move flow',
       message: message,
@@ -663,6 +914,138 @@
     })
   }
 
+  function addFolder () {
+    addFolderDialog(function (newName, parent) {
+      var newFolderInfo = {name: newName.trim()}
+      if (newFolderInfo.name.length === 0) return
+      if (parent !== "false") newFolderInfo.parent = parent
+      $.ajax({
+        url: `${setup.protocol}://${setup.ip}/api/manager/flow/flowfolder`,
+        type: 'POST',
+        data: JSON.stringify(newFolderInfo),
+        success: function(data) {
+          loadFolders(showFolders)
+        }
+      })
+    })
+  }
+
+  function editFolder () {
+    selectFolderDialog(function (folderId) {
+      if (!folderId) return
+      editFolderDialog(folderId, function (newName, parent) {
+        newFolderInfo = {
+          name: newName.trim(),
+          parent: parent === "false" ? null : parent
+        }
+        if (newFolderInfo.name.length === 0) return
+        $.ajax({
+          url: `${setup.protocol}://${setup.ip}/api/manager/flow/flowfolder/${folderId}`,
+          type: 'PUT',
+          data: JSON.stringify(newFolderInfo),
+          success: function (data) {
+            loadFolders(showFolders)
+          }
+        })
+      })
+    })
+  }
+
+  function addFolderDialog ( callback ) {
+    var message = $('.dialog_addFolder').clone()
+
+    buildFolderListSelector(message, 'editFolder')
+
+    BootstrapDialog.show({
+      title: 'Add folder',
+      message: message,
+      buttons: [
+        {
+          label: 'Cancel',
+          action: function (dialogRef) {
+            dialogRef.close()
+            callback(false)
+          }
+        },{
+          label: 'Save',
+          action: function (dialogRef) {
+            var folderName = dialogRef.getModalBody().find('[id=addFolder]').val()
+            var editFolder = dialogRef.getModalBody().find('[id=editFolder]').val()
+            dialogRef.close()
+            callback(folderName, editFolder)
+          }
+        }
+      ]
+    })
+  }
+
+  function selectFolderDialog ( callback ) {
+    var message = $('.dialog_selectFolder').clone()
+    buildFolderListSelector(message, 'editFolder')
+    BootstrapDialog.show({
+      title: 'Select folder to edit',
+      message: message,
+      buttons: [
+        {
+          label: 'Cancel',
+          action: function (dialogRef) {
+            dialogRef.close()
+            callback(false)
+          }
+        },{
+          label: 'Next',
+          action: function (dialogRef) {
+            var editFolder = dialogRef.getModalBody().find('[id=editFolder]').val()
+            dialogRef.close()
+            callback(editFolder)
+          }
+        }
+      ]
+    })
+  }
+
+  function buildFolderListSelector(message, element, excludeId) {
+    function loopNodes(folders) {
+      folders.forEach(folder => addFolder(folder))
+    }
+
+    function addFolder(folder) {
+      $(message).find(`[id=${element}]`).append($('<option></option>').attr('value', folder.id).text(formatFolder(folder.id)))
+      if (folder.nodes) loopNodes(folder.nodes)
+    }
+
+    loopNodes(getTree(excludeId))
+  }
+
+  function editFolderDialog ( folderId, callback ) {
+    var message = $('.dialog_editFolder').clone()
+    $(message).find('[id=editName]').attr('value', `${getFolder(folderId).name}`)
+    buildFolderListSelector(message, 'editFolder', folderId)
+
+    $(message).find('[id=editFolder]').val((getFolder(folderId).parent || false).toString())
+    BootstrapDialog.show({
+      title: 'Change the folder name or choose another parent folder',
+      message: message,
+      buttons: [
+        {
+          label: 'Cancel',
+          action: function (dialogRef) {
+            dialogRef.close()
+            callback(false)
+          }
+        },{
+          label: 'Save',
+          action: function (dialogRef) {
+            var folderName = dialogRef.getModalBody().find('[id=editName]').val()
+            var editFolder = dialogRef.getModalBody().find('[id=editFolder]').val()
+            dialogRef.close()
+            callback(folderName, editFolder)
+          }
+        }
+      ]
+    })
+  }
+
   function orderArrayByIndexMap (array, indexMap) {
     var result = []
     indexMap.forEach((order, index) => result[index] = array[order])
@@ -675,132 +1058,180 @@
     return result
   }
 
-  function saveFlowCardOrder (flowId, conditionsOrder, actionsOrder) {
-    if (!(indexMapHasChanged(conditionsOrder) || indexMapHasChanged(actionsOrder))) return
-    $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`, function(data) {
-      if (data.status !== 200) return alert('Failure... getting existing flow')
-      var existingFlow = data.result
-      existingFlow.conditions = orderArrayByIndexMap(existingFlow.conditions, conditionsOrder)
-      existingFlow.actions = orderArrayByIndexMap(existingFlow.actions, actionsOrder)
-      getFlow(flowId).conditions = existingFlow.conditions
-      getFlow(flowId).actions = existingFlow.actions
-      $.ajax({
-        url: `${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`,
-        type: 'PUT',
-        data: JSON.stringify(existingFlow),
-        success: function(data) {
-          // reset order
-          console.log('order saved')
-          // location.reload()
-        }
-      })
+  // function saveFlowCardOrder (flowId, conditionsOrder, actionsOrder) {
+  //   if (!(indexMapHasChanged(conditionsOrder) || indexMapHasChanged(actionsOrder))) return
+  //   $.getJSON(`${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`, function(data) {
+  //     if (data.status !== 200) return alert('Failure... getting existing flow')
+  //     var existingFlow = data.result
+  //     existingFlow.conditions = orderArrayByIndexMap(existingFlow.conditions, conditionsOrder)
+  //     existingFlow.actions = orderArrayByIndexMap(existingFlow.actions, actionsOrder)
+  //     getFlow(flowId).conditions = existingFlow.conditions
+  //     getFlow(flowId).actions = existingFlow.actions
+  //     $.ajax({
+  //       url: `${setup.protocol}://${setup.ip}/api/manager/flow/flow/${flowId}`,
+  //       type: 'PUT',
+  //       data: JSON.stringify(existingFlow),
+  //       success: function(data) {
+  //         // reset order
+  //         console.log('order saved')
+  //         // location.reload()
+  //       }
+  //     })
+  //   })
+  // }
+
+  function search () {
+    var value = $('[id=search]').val()
+    console.log('search', value)
+    if (!value) {
+      $('[data=flow]').show()
+    } else {
+      $('[data=flow]').hide()
+      if ($(`[data-folder-id="${value}"]`).length > 0) {
+        $(`[data-folder-id="${value}"]`).show()
+      } else {
+        $(`:icontains(${value})`).parents('#flows [data=flow]').show()
+      }
+    }
+  }
+
+  var testrun = {dialog: null, flowId: null, cards: null, sessionId: null, testCardIndex: null}
+
+  function test (flowId, testFlow, testCardIndex) {
+    testrun.flowId = flowId
+    testrun.dialog = testDialog()
+    testrun.cards = {total: testFlow.flow.conditions.length + testFlow.flow.actions.length, running: 0, passed: 0, failed: 0, error: 0, errors: []}
+    testrun.testCardIndex = testCardIndex
+
+    $.ajax({
+      url: `${setup.protocol}://${setup.ip}/api/manager/flow/flow/test`,
+      type: 'POST',
+      data: JSON.stringify(testFlow),
+      success: function(data) {
+        testrun.sessionId = data.sessionId
+        testrun.dialog.setClosable(true)
+        testrun.dialog.updateButtons()
+      }
     })
   }
 
-  function search () {
-    value = $('[id=search]').val()
-    $('[data=flow]').hide()
-    $(`:icontains(${value})`).parents('#flows [data=flow]').show()
-  }
-  var dialog
-  function test (flowId, testFlow, testCardIndex) {
-    dialog = testDialog()
-    var socket = io.connect(`${setup.protocol}://${setup.ip}/realtime/manager/flow/`, {query: `token=${setup.bearer_token}`, transports: ['websocket', 'polling']})
-    var session
-    var cards = {total: testFlow.flow.conditions.length + testFlow.flow.actions.length, running: 0, passed: 0, failed: 0, error: 0, errors: []}
-    socket.on('test', function (data) {
-      if (data.test_id !== session) return
-      cards[data.state] += 1
-      if (data.state === 'running') {
-        $(`[data-flow-id=${flowId}] [data=cards_${data.card_type}] .well`).eq(testCardIndex || data.card_index).css('background-color', 'lightblue')
+  function handleFlowTestEvent (event, data) {
+    if (data.sessionId !== testrun.sessionId) return
+    if (event === 'testFlowCardStart') {
+      testrun.cards['running'] += 1
+      var cardtype = (data.type === 'flowcardaction' ? 'action' : 'condition')
+      $(`[data-flow-id=${testrun.flowId}] [data=cards_${cardtype}] .well`).eq(testrun.testCardIndex || data.index).css('background-color', 'lightblue')
+    }
+    if (event === 'testFlowCardError') {
+      testrun.cards['error'] += 1
+      var cardtype = data.type === 'flowcardaction' ? 'action' : 'condition'
+      testrun.cards.running -= 1
+      $(`[data-flow-id=${testrun.flowId}] [data=cards_${cardtype}] .well`).eq(testrun.testCardIndex || data.index).css('background-color', 'red').animate({'background-color': '#f5f5f5'}, 3000)
+      testrun.cards.errors.push(data.err)
+    }
+    if (event === 'testFlowCardEnd') {
+      testrun.cards.running -= 1
+      var cardtype = data.type === 'flowcardaction' ? 'action' : 'condition'
+      if (!data.result) {
+        testrun.cards['failed'] += 1
+        $(`[data-flow-id=${testrun.flowId}] [data=cards_${cardtype}] .well`).eq(testrun.testCardIndex || data.index).css('background-color', 'red').animate({'background-color': '#f5f5f5'}, 3000)
+      } else {
+        testrun.cards['passed'] += 1
+        $(`[data-flow-id=${testrun.flowId}] [data=cards_${cardtype}] .well`).eq(testrun.testCardIndex || data.index).css('background-color', 'lightgreen').animate({'background-color': '#f5f5f5'}, 1500)
       }
-      if (data.state === 'passed') {
-        cards.running -= 1
-        $(`[data-flow-id=${flowId}] [data=cards_${data.card_type}] .well`).eq(testCardIndex || data.card_index).css('background-color', 'lightgreen').animate({'background-color': '#f5f5f5'}, 1500)
-      }
-      if (data.state === 'failed' || data.state === 'error') {
-        cards.running -= 1
-        $(`[data-flow-id=${flowId}] [data=cards_${data.card_type}] .well`).eq(testCardIndex || data.card_index).css('background-color', 'red').animate({'background-color': '#f5f5f5'}, 3000)
-        if (data.state === 'error') cards.errors.push(data.err)
-        socket.close()
-        dialog.setClosable(true)
-        dialog.updateButtons()
-      }
-      dialog.$modalDialog.find('[data=test_status]').html(JSON.stringify(cards, null, 2))
-      if (cards.total === cards.passed) {
-        socket.close()
-        dialog.setClosable(true)
-        dialog.updateButtons()
-      }
-    })
-    socket.on('connect', function () {
-      $.ajax({
-        url: `${setup.protocol}://${setup.ip}/api/manager/flow/flow/test/`,
-        type: 'POST',
-        data: JSON.stringify(testFlow),
-        success: function(data) {
-          session = data.result
-        }
-      })
-    })
+    }
+
+    testrun.dialog.$modalDialog.find('[data=test_status]').html(JSON.stringify(testrun.cards, null, 2))
+    if (testrun.cards.total === testrun.cards.passed || testrun.cards.failed || testrun.cards.error) {
+      testrun.dialog.setClosable(true)
+      testrun.dialog.updateButtons()
+    }
   }
 
   function testCard (flowId, type, index) {
-    var testflow = {
-      "flow":{
-        "trigger":{},
-        "conditions":[],
-        "actions":[]
+    var triggercard
+    var flow = {
+      flow: {
+        trigger: {  // fallback on broken flows with invalid trigger card
+          uri: 'homey:manager:flow',
+          id: 'programmatic_trigger'
+        },
+        conditions:[],
+        actions:[]
       },
-      "tokens":{}
+      tokens:{}
     }
 
-    if (!isEmptyObject(getFlow(flowId).trigger)) {
-      (getCard(getFlow(flowId).trigger.uri, 'trigger', getFlow(flowId).trigger.id).tokens || []).forEach(token => {
-        if ((token.type || 'string').toLowerCase() === 'string') {
-          testflow.tokens[token.name] = token.example.en
-        } else {
-          testflow.tokens[token.name] = token.example
-        }
+    triggercard = getCard(getFlow(flowId).trigger.uri, 'trigger', getFlow(flowId).trigger.id)
+    if (!triggercard) {
+      triggercard = getCard(flow.flow.trigger.uri, 'trigger', flow.flow.trigger.id)
+    } else {
+      flow.flow.trigger = getFlow(flowId).trigger
+    }
+    if (triggercard.tokens) {
+      triggercard.tokens.forEach(token => {
+        flow.tokens[token.id] = token.example
       })
     }
 
-    testflow.flow[type].push(getFlow(flowId)[type][index])
-    test(flowId, testflow, index)
+    flow.flow[type].push(getFlow(flowId)[type][index])
+    flow.flow[type].forEach((card, index) => {
+      if (card.droptoken === false) delete flow.flow[type][index].droptoken
+    })
+
+    test(flowId, flow, index)
   }
 
   function testFlow (flowId) {
-    var testflow = {
-      "flow":{
-        "trigger":{},
-        "conditions":[],
-        "actions":[]
+    // todo: do something usefull with tokens
+    var triggercard
+    var flow = {
+      flow: {
+        trigger: {  // fallback on broken flows with invalid trigger card
+          uri: 'homey:manager:flow',
+          id: 'programmatic_trigger'
+        },
+        conditions:[],
+        actions:[]
       },
-      "tokens":{}
+      tokens:{}
     }
 
-    if (!isEmptyObject(getFlow(flowId).trigger)) {
-      (getCard(getFlow(flowId).trigger.uri, 'trigger', getFlow(flowId).trigger.id).tokens || []).forEach(token => {
-        if ((token.type || 'string').toLowerCase() === 'string') {
-          testflow.tokens[token.name] = token.example.en
-        } else {
-          testflow.tokens[token.name] = token.example
-        }
+    triggercard = getCard(getFlow(flowId).trigger.uri, 'trigger', getFlow(flowId).trigger.id)
+    if (!triggercard) {
+      triggercard = getCard(flow.flow.trigger.uri, 'trigger', flow.flow.trigger.id)
+    } else {
+      flow.flow.trigger = getFlow(flowId).trigger
+    }
+    if (triggercard.tokens) {
+      triggercard.tokens.forEach(token => {
+        flow.tokens[token.id] = token.example
       })
     }
 
-    testflow.flow.conditions =  getFlow(flowId).conditions
-    testflow.flow.actions = getFlow(flowId).actions
-    if (testflow.flow.conditions.length + testflow.flow.actions.length > 0) test(flowId, testflow, null)
+    flow.flow.conditions =  getFlow(flowId).conditions
+    flow.flow.conditions.forEach((condition, index) => {
+      if (condition.droptoken === false) delete flow.flow.conditions[index].droptoken
+    })
+
+    flow.flow.actions = getFlow(flowId).actions
+    flow.flow.actions.forEach((action, index) => {
+      if (action.droptoken === false) delete flow.flow.actions[index].droptoken
+    })
+
+    if (flow.flow.conditions.length + flow.flow.actions.length > 0) test(flowId, flow, null)
   }
 
-  function getTree() {
+  function getTree(excludeid) {
+    var selected = $('[id=search]').val()
     function treeBuild (parent) {
       var tree = []
+      if (parent && parent === excludeid) return tree
       for (var folderIndex in folders) {
         var folder = folders[folderIndex]
-        if (folder.folder == parent) {
-          var node = {text: folder.title, nodes: treeBuild(folder.id), order: folder.order, id: folder.id}
+        if (folder.parent === parent && folder.id !== excludeid) {
+          var node = {text: folder.name, nodes: treeBuild(folder.id), order: folder.sorting, id: folder.id, state: {}}
+          if (selected === folder.id) node.state.selected = true
           if (node.nodes.length === 0) delete node.nodes
           var flowCount = flows.filter(flow => flow.folder === folder.id).length
           if (flowCount > 0) node.tags = [flowCount]
@@ -809,7 +1240,7 @@
       }
       return tree.sort(function (a, b) { return a.order > b.order ? 1 : -1})
     }
-    return treeBuild(false)
+    return treeBuild(null)
   }
 
   function setFlowsDraggable() {
@@ -823,19 +1254,22 @@
     })
   }
 
-  function orderFlowView () {
-    var list = $('#flows [data=flow]')
-    list.sort((a, b) => {
-      return (getFlow($(a).data('flow-id')).order > (getFlow($(b).data('flow-id')).order) ? 1 : -1)
-    })
-    $("#flows").html(list)
-    setFlowsDraggable()
-    setFlowCardsSortable()
-    setTooltips()
-  }
+  // function orderFlowView () {
+  //   // todo -> filter by getTree structure
+  //
+  //   var list = $('#flows [data=flow]')
+  //   list.sort((a, b) => {
+  //     return (getFlow($(a).data('flow-id')).order > (getFlow($(b).data('flow-id')).order) ? 1 : -1)
+  //   })
+  //   $("#flows").html(list)
+  //   setFlowsDraggable()
+  //   // setFlowCardsSortable()
+  //   setTooltips()
+  // }
 
 
   function setFoldersDroppable () {
+    console.log('setFoldersDroppable', $('#folders li').length)
     $('#folders li').droppable({
       accept: '[data=flow]',
       tolerance: 'pointer',
@@ -849,27 +1283,29 @@
       }
     })
   }
-
-  function setFlowCardsSortable() {
-    $('[data=cards_action], [data=cards_condition]').sortable({
-      handle: '[data=move_card_btn]',
-      tolerance: 'pointer',
-      revert: 'invalid',
-      placeholder: 'placeholder well well-sm',
-      forceHelperSize: true,
-      start: function(event, ui) {
-        ui.placeholder.height(ui.item.find('.well').height())
-      },
-      stop: function (event, ui) {
-        var flowId = ui.item.parents('[data=flow]').attr('data-flow-id')
-        var actionsOrder = []
-        var conditionsOrder = []
-        $(`[data-flow-id=${flowId}] [data=cards_condition] .card`).each(function (card) { conditionsOrder.push($(this).attr('card_index') * 1); $(this).attr('card_index', card) } )
-        $(`[data-flow-id=${flowId}] [data=cards_action] .card`).each(function (card) { actionsOrder.push($(this).attr('card_index') * 1); $(this).attr('card_index', card) } )
-        saveFlowCardOrder(flowId, conditionsOrder, actionsOrder)
-      }
-    })
-  }
+//
+//   function setFlowCardsSortable() {
+//     $('[data=cards_action_then], [data=cards_action_else], [data=cards_condition_group1], [data=cards_condition_group2], [data=cards_condition_group3]').sortable({
+//       handle: '[data=move_card_btn]',
+//       tolerance: 'pointer',
+//       revert: 'invalid',
+//       placeholder: 'placeholder well well-sm',
+//       forceHelperSize: true,
+//       start: function(event, ui) {
+//         ui.placeholder.height(ui.item.find('.well').height())
+//       },
+//       stop: function (event, ui) {
+// //
+//         var flowId = ui.item.parents('[data=flow]').attr('data-flow-id')
+//         var actionsOrder = []
+//         var conditionsOrder = []
+//         $(`[data-flow-id=${flowId}] [data=cards_condition] .card`).each(function (card) { conditionsOrder.push($(this).attr('card_index') * 1); $(this).attr('card_index', card) } )
+//         $(`[data-flow-id=${flowId}] [data=cards_action] .card`).each(function (card) { actionsOrder.push($(this).attr('card_index') * 1); $(this).attr('card_index', card) } )
+//
+//         // saveFlowCardOrder(flowId, conditionsOrder, actionsOrder)
+//       }
+//     })
+//   }
 
   function setTooltips() { $('[data-toggle="tooltip"]').tooltip() }
 
@@ -877,6 +1313,52 @@
     e.preventDefault()
     $("#wrapper").toggleClass("toggled")
    })
+   $("#token-toggle").click(function (e) {
+     e.preventDefault()
+     $("#tokens").toggleClass("hide")
+    })
+
+    var HomeySocket
+    function connectFlowManager (callback) {
+      console.log('Connecting to Homey realtime manager...')
+      var socket = io.connect(`${setup.protocol}://${setup.ip}`, {transports: ['websocket', 'polling']})
+      socket.on('connect', function () {
+        socket.emit("handshakeClient", {
+          homeyId: setup.homeyId,
+          token: setup.bearer_token
+        }, function (error, n) {
+          if (error) return console.error(error)
+          HomeySocket = socket.io.socket(n.namespace)
+          HomeySocket.once("connect", function () {
+            socket.close()
+            HomeySocket.emit("subscribe", "homey:manager:flow", function() {
+              console.log('...Homey realtime flow manager connected')
+              return callback()
+            })
+          })
+          HomeySocket.on('homey:manager:flow', function (event, data) {
+            // handler
+            if (['testFlowCardStart','testFlowCardError','testFlowCardEnd'].indexOf(event) > -1) {
+              handleFlowTestEvent(event, data)
+            } else {
+              // console.log("HomeySocket emit", event, data)
+            }
+          })
+
+          HomeySocket.once("disconnect", function (error) {
+            console.log("HomeySocket disconnected", error)
+          })
+          HomeySocket.once("error", function (error) {
+            console.error("HomeySocket error", error)
+          })
+          HomeySocket.open()
+        })
+      })
+      socket.on('error',function (error) {
+        console.log(socket)
+      })
+    }
+
 </script>
 </body>
 </html>
